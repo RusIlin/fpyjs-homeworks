@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Угадай число</title>
+</head>
+
+<body>
+    <p>Loading, please wait...</p>
+    <script>
+        function getRandomInt() {
+            return Math.floor(Math.random() * 1000);
+        }
+
+        alert("Привет!");
+        let begin = confirm('Хотите сыграть в игру "Угадай число"?');
+
+        let num = getRandomInt();
+        let i = 1;
+
+        if (begin) {
+            do {
+                game();
+                begin = confirm("Сыграем еще раз?");
+                num = getRandomInt();
+                i = 1;
+            } while (begin);
+        }
+        alert("До свидания!");
+
+        function game() {
+            let version = prompt("Какое число я загадал?");
+
+            if (version > num) {
+                alert("Меньше :)");
+                i += 1;
+                game();
+            } else if (version < num) {
+                alert("Больше :)");
+                i += 1;
+                game();
+            } else {
+                alert("Верно! Я загадал число " + num + "! " + "Вы угадали с " + i + " раза.");
+            }
+        }
+    </script>
+</body>
+
+</html>
